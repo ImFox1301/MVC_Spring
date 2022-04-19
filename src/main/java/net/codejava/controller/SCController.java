@@ -34,11 +34,6 @@ public class SCController {
         return "requests";
     }
 
-    @RequestMapping("/showAllRequestz")
-    public String showAllRequests() {
-        return "requestz";
-    }
-
     @RequestMapping("/new")
     public String showNewServicePage(Model model) {
         ServiceCenter serviceCenter = new ServiceCenter();
