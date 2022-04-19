@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Service Center Manager</title>
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+        * {box-sizing: border-box;}
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+
+        .btn{
+            background-color: #4CAF50;
+            color: white;
+            padding: 1px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn:hover{
+            background-color: #45a049;
+        }
+
+        .container {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<h1 align = "center">Service Center List</h1>
+<div class="container">
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Device Type</th>
+            <th>Problem</th>
+            <th>E-mail</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="serviceCenter : ${listServiceCenter}" align = "center">
+            <td th:text="${serviceCenter.id}">Product ID</td>
+            <td th:text="${serviceCenter.device_type}">Name</td>
+            <td th:text="${serviceCenter.problem}">Location</td>
+            <td th:text="${serviceCenter.email}">Carrier</td>
+            <td>
+                <a th:href="@{/edit/{id}(id = ${serviceCenter.id})}" class="btn">Edit</a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{/delete/{id}(id = ${serviceCenter.id})}" class="btn">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
